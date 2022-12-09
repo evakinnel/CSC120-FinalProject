@@ -8,15 +8,33 @@ public class Character {
     private String power; //eventually hopefully they can have more than 1 power
     private String catchphrase;
 
+    // character says its catchphrase
+    public void speak(){
+        System.out.println(this.catchphrase);
+    }
+
+    public void describe(){
+        System.out.print(this.description);
+    }
+
+    public void sayName(){
+        System.out.print(this.name);
+    }
+
+    public void sayPower(){
+        System.out.print(this.power);
+    }
+    
 
     public Character(String name, String description, String role, String power, String catchprase){
         this.name = name;
         this.description = description;
         this.role = role;
         this.power = power;
-        this.catchphrase = catchprase;
-        
+        this.catchphrase = catchprase; 
     }
+
+
 
 
     public static void main(String[] args) {

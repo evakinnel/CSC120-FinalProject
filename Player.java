@@ -17,6 +17,12 @@ public class Player {
     }
 
     // method add to backpack
+     public void addBackpack(String collectible){
+      this.backpack.add(collectible);
+    }
+    public void removeBackpack(String collectible){
+      this.backpack.remove(collectible);
+    }
     //intro method
 
 

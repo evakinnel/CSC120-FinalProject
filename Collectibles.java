@@ -18,8 +18,25 @@ public class Collectibles {
         
     }
 
-    public int use(int uses){
+    // collectible says its catchphrase
+    public void speak(){
         System.out.println(this.catchphrase);
+    }
+
+    public void describe(){
+        System.out.print(this.description);
+    }
+
+    public void sayName(){
+        System.out.print(this.name);
+    }
+
+    public void sayPower(){
+        System.out.print(this.power);
+    }
+
+    public int use(int uses){
+        this.speak();
         this.uses -= uses;
         System.out.println("You have used " + this.name + " to " + this.power + ".");
         System.out.println("You have " + this.uses + " uses left of " + this.name);

@@ -1,6 +1,12 @@
 import java.util.Scanner;
+import Player;
+import Collectibles;
+import Character;
+import Question;
 
 public class GameLoop {
+
+    //could be a constructor if we need
 
     public static void main(String[] args) {
 
@@ -28,6 +34,7 @@ public class GameLoop {
             //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
             System.out.println("You are still playing. Follow the instructions if you want to win/lose...");
             userResponse = userInput.nextLine().toUpperCase();
+            
 
             /*
              * "question 1"
@@ -35,14 +42,14 @@ public class GameLoop {
              *   "next question ", spell/whatever goes into bag (list)- some questions add nothing to bag
              * else if ans is half right
              *    "next" but nothing added to bag
-             * else (taken care of below) if ans is wrong the game will quit
+             * else (taken care of below) if ans is wrong lose a life
              * 
              */
 
             // ***********************************************************************
             // And as the player interacts, you'll check to see if the game should end
             //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
-            if (userResponse.equals("wrong")) { // if answer maps to wrong, then you lose. (won't be .equals)
+            if (userResponse.equals("wrong")) { // when you have 0 lives. if answer maps to wrong, then you lose a life. (won't be .equals)
                 stillPlaying = false;
             }
         } while (stillPlaying);
