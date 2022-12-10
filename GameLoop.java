@@ -1,14 +1,23 @@
 import java.util.Scanner;
-import Player;
-import Collectibles;
-import Character;
-import Question;
+import java.util.*;
+// import Player;
+// import Collectibles;
+// import Character;
+// import Question;
 
 public class GameLoop {
 
     //could be a constructor if we need
 
     public static void main(String[] args) {
+
+        // ArrayList<String> c_g_q = new ArrayList<>(Arrays.asList("draught", "honey", "fire"));
+        // Question crabbe_goyle = new Question("Which choice?", c_g_q, c_g_q.get(0), c_g_q.get(2));
+
+        // Question write_words = new Question("Type this prescicely: CaN yoU tELL Me?", "CaN yoU tELL Me?");
+        
+        // System.out.println(crabbe_goyle.correct_answer);
+
 
         // This is a "flag" to let us know when the loop should end
         boolean stillPlaying = true;
