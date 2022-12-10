@@ -15,6 +15,8 @@ public class Question{
         this.partial_correct = partial_correct;
        }
 
+
+    // overloaded constructor
     public Question(String question, String correct_answer){
         this.question = question;
         this.correct_answer = correct_answer;
@@ -30,13 +32,20 @@ public class Question{
         }
     }
 
+    public void printQuestion(String question, ArrayList list) {
+
+        System.out.println(this.question);
+        System.out.println("a. " + list.get(0) + "\nb. " + list.get(1) + "\nc. " + list.get(2));
+        
+      }
+
     public static void main(String[] args) {
         ArrayList<String> c_g_q = new ArrayList<>(Arrays.asList("draught", "honey", "fire"));
         Question crabbe_goyle = new Question("Which choice?", c_g_q, c_g_q.get(0), c_g_q.get(2));
 
         Question write_words = new Question("Type this prescicely: CaN yoU tELL Me?", "CaN yoU tELL Me?");
 
-        System.out.println(crabbe_goyle.correct_answer);
+        crabbe_goyle.printQuestion(crabbe_goyle.question, c_g_q);
         
     }
 }
