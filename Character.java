@@ -14,15 +14,15 @@ public class Character {
     }
 
     public void describe(){
-        System.out.print(this.description);
+        System.out.println("A " + this.name + " is " + this.description);
     }
 
     public void sayName(){
-        System.out.print(this.name);
+        System.out.println(this.name);
     }
 
     public void sayPower(){
-        System.out.print(this.power);
+        System.out.println(this.power);
     }
     
 
@@ -38,7 +38,16 @@ public class Character {
 
 
     public static void main(String[] args) {
-        Character basilisk = new Character("Basilisk", "A bloody large focking snake", "villain", "deathly eye contact", "ssssssssss");
+        System.out.println("\n");
+
+        Character basilisk = new Character("Basilisk", "a bloody large focking snake", "villain", "deathly eye contact", "ssssssssss");
+        
+        basilisk.describe();
+        basilisk.speak();
+
+        System.out.println("\n");
+
+    
     }
     
 }

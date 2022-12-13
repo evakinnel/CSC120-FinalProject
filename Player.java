@@ -4,9 +4,9 @@ import java.util.Scanner;
 public class Player {
     
     public String username;
-    private int lives;
+    public int lives;
     public String catchphrase;
-    private ArrayList<String> backpack;
+    public ArrayList<String> backpack;
 
 
     public Player(String username, String catchprase){
@@ -23,24 +23,41 @@ public class Player {
     public void removeBackpack(String collectible){
       this.backpack.remove(collectible);
     }
-    //intro method
+    
 
+    public int loseLives(){
 
+      this.lives -= 1;
+      System.out.println("You have lost a life. You have " + this.lives + " lives left.");
+      return this.lives;
+  }
+    public void getLives(){
+      System.out.println("You have " + this.lives + " lives left.");
+    }
+
+    public void getHelp(){
+      System.out.println("Here are the things you can do:");
+      
+    }
+    
     public static void main(String[] args) {
-        System.out.println("What would you like your username to be?");
-        Scanner inputUsername = new Scanner(System.in);
-        String username = inputUsername.nextLine();
-        System.out.println("What would you like your catchphrase to be?");
-        Scanner inputCatchphrase = new Scanner(System.in);
-        String catchphrase = inputCatchphrase.nextLine();
-        Player player1 = new Player(username.toString(), catchphrase.toString());
-        System.out.println("You are playing as " + player1.username + ". They say " + player1.catchphrase + ". You have " + player1.lives + " lives.");
+      System.out.println("\n");
+
+      System.out.println("What would you like your username to be?");
+      Scanner inputUsername = new Scanner(System.in);
+      String username = inputUsername.nextLine();
+      System.out.println("What would you like your catchphrase to be?");
+      Scanner inputCatchphrase = new Scanner(System.in);
+      String catchphrase = inputCatchphrase.nextLine();
+      Player player1 = new Player(username.toString(), catchphrase.toString());
+      System.out.println("You are playing as " + player1.username + ". They say " + player1.catchphrase + ". You have " + player1.lives + " lives.");
+
+      System.out.println("\n");
 
 
 
-
-        inputUsername.close();
-        inputCatchphrase.close(); 
+      inputUsername.close();
+      inputCatchphrase.close(); 
     }
     
 

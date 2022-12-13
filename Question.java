@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Question{
     
-    private String question;
-    private ArrayList<String> answers; 
-    private String correct_answer;
-    private String partial_correct;
+    public String question;
+    public ArrayList<String> answers; 
+    public String correct_answer;
+    public String partial_correct;
 
     public Question(String question, ArrayList<String> answers, String correct_answer, String partial_correct){ 
         this.question = question;
@@ -24,10 +25,14 @@ public class Question{
 
     public int isCorrect(String user_ans){
         if (user_ans.equals(this.correct_answer)){
+            System.out.println(user_ans + " is right. Well done!");
             return 2;
         } if (user_ans.equals(this.partial_correct)){
+            System.out.println(user_ans + " is an okay answer.");
             return 1;
         }else{
+            // loseLives();
+            System.out.println(user_ans + " was wrong. You have lost a life");
             return 0;
         }
     }
@@ -39,14 +44,33 @@ public class Question{
         
       }
 
+      //overloaded printQuestion
+    public void printQuestion(String question) {
+        System.out.println(this.question);
+        
+    }
+
+    // public void userInput(){
+        
+
+    // }
+
+
+
     public static void main(String[] args) {
-        ArrayList<String> c_g_q = new ArrayList<>(Arrays.asList("draught", "honey", "fire"));
+        System.out.println("\n");
+
+        ArrayList<String> c_g_q = new ArrayList<>(Arrays.asList("DRAUGHT", "HONEY", "FIRE"));
         Question crabbe_goyle = new Question("Which choice?", c_g_q, c_g_q.get(0), c_g_q.get(2));
 
         Question write_words = new Question("Type this prescicely: CaN yoU tELL Me?", "CaN yoU tELL Me?");
 
         crabbe_goyle.printQuestion(crabbe_goyle.question, c_g_q);
-        
+        crabbe_goyle.isCorrect("DRAUGHT");
+        crabbe_goyle.isCorrect("FIRE");
+        crabbe_goyle.isCorrect("HONEY");
+
+        System.out.println("\n");
     }
 }
 

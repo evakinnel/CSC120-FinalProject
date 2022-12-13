@@ -44,8 +44,13 @@ public class Collectibles {
     }
     
     public static void main(String[] args) {
+        System.out.println("\n");
+
         Collectibles riddlesDiary = new Collectibles("Tom Riddle's Diary", "An empty book", "see the past", 2, "I can't tell you, but I can show you");
         riddlesDiary.use(1);
+        
+        System.out.println("\n");
+
     }
     
 }

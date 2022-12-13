@@ -1,14 +1,4 @@
 
-Questions for Jordan:
-- Importing classes to interact with each other? (ex: student and onecard). We get red squiggly lines and don't know why
-- connecting everything to the game loop?
-- Where is a good place for all the text: instructions/storyline? their own class?
-
-
-
-
-
-
 We should call lives something other than "lives"
 - like suspicion/sneaky something, and if someone gets too susupicious, you'll get expelled and cannot finish
 
