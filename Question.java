@@ -6,8 +6,10 @@ public class Question{
     
     public String question;
     public ArrayList<String> answers; 
-    public String correct_answer;
-    public String partial_correct;
+    public String correct_answer; // store it as the question index
+    public String partial_correct; // ^^
+    // collectible, what is given if answer is correct
+    // make a private accessor for collectible, return collectible with isCorrect instead of an int
 
     public Question(String question, ArrayList<String> answers, String correct_answer, String partial_correct){ 
         this.question = question;

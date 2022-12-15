@@ -17,7 +17,10 @@ answer questions/complete tasks
 If your game includes challenges that must be overcome to win, also list them below.
 
 ***** how do we call methods from other classes generally
+    - make them static (there's only one copy of this)
+    - move some things around
 **** we need typeerror messages 
 **** create question instance automatically 
 ***** storing all questions and answer in some type of data structure and not writing it out into the code (ex: a file)
+    - questions outside the do loop
 **** create multiple instances of GameLoop 

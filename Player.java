@@ -31,11 +31,12 @@ public class Player {
       System.out.println("You have lost a life. You have " + this.lives + " lives left.");
       return this.lives;
   }
-    public void getLives(){
+    public int getLives(){
       System.out.println("You have " + this.lives + " lives left.");
+      return this.lives;
     }
 
-    public void getHelp(){
+    public static void getHelp(){
       System.out.println("Here are the things you can do:");
       
     }

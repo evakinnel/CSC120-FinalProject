@@ -11,6 +11,9 @@ public class GameLoop {
         // This is a "flag" to let us know when the loop should end
         boolean stillPlaying = true;
 
+        // array list question = new array list
+        // add each question to this as created
+
         // We'll use this to get input from the user.
         Scanner userInput = new Scanner(System.in);
 
@@ -30,7 +33,25 @@ public class GameLoop {
         String catchphrase = userInput.nextLine();
         Player player1 = new Player(username.toString(), catchphrase.toString());
         System.out.println("You are playing as " + player1.username + ". They say " + player1.catchphrase + ". You have " + player1.lives + " lives.");
-    
+        
+        // adding questions to arraylist
+        ArrayList<ArrayList<String>> chamberQuestions = new ArrayList<ArrayList<String>>();
+        ArrayList<String> answersOneList = new ArrayList<>(Arrays.asList("a. Draught", "b. Honey", "c. Fire"));
+        Question  questionOne = new Question("Which choice?", answersOneList, answersOneList.get(0), answersOneList.get(2)); 
+        chamberQuestions.add(answersOneList); // how to add something deeper than an Array to this?
+        //crabbe_goyle.printQuestion(crabbe_goyle.question, c_g_q);
+
+        Question write_words = new Question("Type this precisely: CaN yoU tELL Me?", "CaN yoU tELL Me?");
+        // chamberQuestions.add(write_words);
+
+
+
+
+        // Scanner response = new Scanner(System.in);
+        String response1 = userInput.nextLine().toUpperCase();
+        if (questionOne.isCorrect(response1) == 0){
+            player1.loseLives();
+        }
 
         // userInput.close();
         // inputCatchphrase.close(); 
@@ -47,64 +68,36 @@ public class GameLoop {
             userResponse = userInput.nextLine().toUpperCase();
 
             if (userResponse.equals("HELP")){
-                player1.getHelp();
+                // getHelp();
             }
 
-            if (userResponse.equals("LL")){
-                player1.loseLives();
-            }
 
-            // player1.getLives();
 
-            // want to figure out how to do this in Question class:
-            ArrayList<String> c_g_q = new ArrayList<>(Arrays.asList("DRAUGHT", "HONEY", "FIRE"));
-            Question crabbe_goyle = new Question("Which choice?", c_g_q, c_g_q.get(0), c_g_q.get(2));        
-            crabbe_goyle.printQuestion(crabbe_goyle.question, c_g_q);
-            // Scanner response = new Scanner(System.in);
-            String response1 = userInput.nextLine().toUpperCase();
-            if (crabbe_goyle.isCorrect(response1) == 0){
-                player1.loseLives();
-            }
+            // print(chamberquestion(i), answers(i));
+            // take user input answer
+            // check if answer is correct (corresponds to question(i))
+            // check if lives == 0
 
-            // this should only have to be in one place, but for now it's here too
-            if (player1.lives == 0) { // when you have 0 lives. 
-                stillPlaying = false;
-            }
 
-            // if user response = correct_answer, move on else if, else
 
-            Question write_words = new Question("Type this precisely: CaN yoU tELL Me?", "CaN yoU tELL Me?");
-            write_words.printQuestion(write_words.question);
-            String response2 = userInput.nextLine();
-            if (write_words.isCorrect(response2) == 0){
-                player1.loseLives();
-            }
 
-            // this should only have to be in one place, but for now it's here too
-            if (player1.lives == 0) { // when you have 0 lives. 
-                stillPlaying = false;
-            }
 
-            Question typeThis = new Question("Type this: helloooo", "helloooo");
-            typeThis.printQuestion(typeThis.question);
-            String response3 = userInput.nextLine();
-            if (typeThis.isCorrect(response3) == 0){
-                player1.loseLives();
-            }
+            // // player1.getLives();
 
-            // this should only have to be in one place, but for now it's here too
-            if (player1.lives == 0) { // when you have 0 lives. 
-                stillPlaying = false;
-            }
+            
 
-            ArrayList<String> omgArray = new ArrayList<>(Arrays.asList("O", "M", "G"));
-            Question omgg = new Question("Which choice?", omgArray, omgArray.get(2), omgArray.get(0));        
-            omgg.printQuestion(omgg.question, omgArray);
-            // Scanner response = new Scanner(System.in);
-            String response4 = userInput.nextLine().toUpperCase();
-            if (omgg.isCorrect(response4) == 0){
-                player1.loseLives();
-            }
+            // // this should only have to be in one place, but for now it's here too
+            // if (player1.lives == 0) { // when you have 0 lives. 
+            //     stillPlaying = false;
+            // }
+
+            // // if user response = correct_answer, move on else if, else
+
+            // write_words.printQuestion(write_words.question);
+            // String response2 = userInput.nextLine();
+            // if (write_words.isCorrect(response2) == 0){
+            //     player1.loseLives();
+            // }
             
 
             // ***********************************************************************
@@ -113,7 +106,7 @@ public class GameLoop {
             if (player1.lives == 0) { // when you have 0 lives. The losing isn't working quite right atm, but it's ok
                 stillPlaying = false;
             }
-        } while (stillPlaying);
+        } while (stillPlaying); //take out stillPlaying - are there still questions, are there still lives?
 
         // Tidy up
         userInput.close();
