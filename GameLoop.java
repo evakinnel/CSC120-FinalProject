@@ -41,7 +41,7 @@ public class GameLoop {
         // adding questions to arraylist
         ArrayList<Question> chamberQuestions = new ArrayList<>();
         ArrayList<String> answersOneList = new ArrayList<>(Arrays.asList("Draught", "Honey", "Fire"));
-        Question  questionOne = new Question("Which choice?", answersOneList, answersOneList.get(0), answersOneList.get(2)); 
+        Question  questionOne = new Question("Which choice?", answersOneList, "a", "c"); 
         chamberQuestions.add(questionOne); // how to add something deeper than an Array to this?
         
         
@@ -74,9 +74,10 @@ public class GameLoop {
 
             // print(chamberquestion(i), answers(i));
             chamberQuestions.get(counter).printQuestion();
-            counter ++;
-            // take user input answer
-            userResponse = userInput.nextLine().toUpperCase();
+            
+            // take user input answerg
+            
+            userResponse = userInput.nextLine();
             // check if answer is correct (corresponds to question(i))
             if (chamberQuestions.get(counter).isCorrect(userResponse) == 0){
                 player1.loseLives();
@@ -84,7 +85,7 @@ public class GameLoop {
             // check if lives == 0
 
 
-            
+            counter ++;
             if (player1.lives == 0) { // when you have 0 lives. The losing isn't working quite right atm, but it's ok
                 stillPlaying = false;
             }
