@@ -5,8 +5,15 @@ import java.util.*;
 public class GameLoop {
 
     //constructor
-
+    public static void printIntro(){
+        // This could be replaced with a more interesting opening
+        System.out.println("******************");
+        System.out.println("WELCOME TO HOGWARTS");
+        System.out.println("******************");
+    }
     public static void main(String[] args) {
+
+        printIntro();
 
         // This is a "flag" to let us know when the loop should end
         boolean stillPlaying = true;
@@ -20,10 +27,7 @@ public class GameLoop {
         // Storage for user's responses
         String userResponse = "";
 
-        // This could be replaced with a more interesting opening
-        System.out.println("******************");
-        System.out.println("WELCOME TO HOGWARTS");
-        System.out.println("******************");
+        
 
         System.out.println("What would you like your username to be?");
         // Scanner inputUsername = new Scanner(System.in);
@@ -35,23 +39,23 @@ public class GameLoop {
         System.out.println("You are playing as " + player1.username + ". They say " + player1.catchphrase + ". You have " + player1.lives + " lives.");
         
         // adding questions to arraylist
-        ArrayList<ArrayList<String>> chamberQuestions = new ArrayList<ArrayList<String>>();
-        ArrayList<String> answersOneList = new ArrayList<>(Arrays.asList("a. Draught", "b. Honey", "c. Fire"));
+        ArrayList<Question> chamberQuestions = new ArrayList<>();
+        ArrayList<String> answersOneList = new ArrayList<>(Arrays.asList("Draught", "Honey", "Fire"));
         Question  questionOne = new Question("Which choice?", answersOneList, answersOneList.get(0), answersOneList.get(2)); 
-        chamberQuestions.add(answersOneList); // how to add something deeper than an Array to this?
-        //crabbe_goyle.printQuestion(crabbe_goyle.question, c_g_q);
+        chamberQuestions.add(questionOne); // how to add something deeper than an Array to this?
+        
+        
+        
 
         Question write_words = new Question("Type this precisely: CaN yoU tELL Me?", "CaN yoU tELL Me?");
-        // chamberQuestions.add(write_words);
+        chamberQuestions.add(write_words);
+
+        
 
 
 
 
-        // Scanner response = new Scanner(System.in);
-        String response1 = userInput.nextLine().toUpperCase();
-        if (questionOne.isCorrect(response1) == 0){
-            player1.loseLives();
-        }
+        int counter = 0;
 
         // userInput.close();
         // inputCatchphrase.close(); 
@@ -61,52 +65,30 @@ public class GameLoop {
 
         // The do...while structure means we execute the body of the loop once before checking the stopping condition
         do {
-            // ************************************************
-            // The stuff that happens in your game will go here
-            //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
-            // System.out.println("You are still playing. Follow the instructions if you want to win/lose...");
-            userResponse = userInput.nextLine().toUpperCase();
+            
 
             if (userResponse.equals("HELP")){
                 // getHelp();
             }
 
 
-
             // print(chamberquestion(i), answers(i));
+            chamberQuestions.get(counter).printQuestion();
+            counter ++;
             // take user input answer
+            userResponse = userInput.nextLine().toUpperCase();
             // check if answer is correct (corresponds to question(i))
+            if (chamberQuestions.get(counter).isCorrect(userResponse) == 0){
+                player1.loseLives();
+            }
             // check if lives == 0
 
 
-
-
-
-            // // player1.getLives();
-
             
-
-            // // this should only have to be in one place, but for now it's here too
-            // if (player1.lives == 0) { // when you have 0 lives. 
-            //     stillPlaying = false;
-            // }
-
-            // // if user response = correct_answer, move on else if, else
-
-            // write_words.printQuestion(write_words.question);
-            // String response2 = userInput.nextLine();
-            // if (write_words.isCorrect(response2) == 0){
-            //     player1.loseLives();
-            // }
-            
-
-            // ***********************************************************************
-            // And as the player interacts, you'll check to see if the game should end
-            //  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓  ↓
             if (player1.lives == 0) { // when you have 0 lives. The losing isn't working quite right atm, but it's ok
                 stillPlaying = false;
             }
-        } while (stillPlaying); //take out stillPlaying - are there still questions, are there still lives?
+        } while (counter < chamberQuestions.size()); //take out stillPlaying - are there still questions, are there still lives?
 
         // Tidy up
         userInput.close();

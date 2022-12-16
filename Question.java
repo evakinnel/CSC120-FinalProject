@@ -13,7 +13,7 @@ public class Question{
 
     public Question(String question, ArrayList<String> answers, String correct_answer, String partial_correct){ 
         this.question = question;
-        this.answers = new ArrayList<String>(); 
+        this.answers = answers; 
         this.correct_answer = correct_answer;
         this.partial_correct = partial_correct;
        }
@@ -39,18 +39,15 @@ public class Question{
         }
     }
 
-    public void printQuestion(String question, ArrayList list) {
+    public void printQuestion() {
 
         System.out.println(this.question);
-        System.out.println("a. " + list.get(0) + "\nb. " + list.get(1) + "\nc. " + list.get(2));
-        
+        if (this.answers != null && ! this.answers.isEmpty()){
+            System.out.println("a. " + this.answers.get(0) + "\nb. " + this.answers.get(1) + "\nc. " + this.answers.get(2));
+        }
       }
 
-      //overloaded printQuestion
-    public void printQuestion(String question) {
-        System.out.println(this.question);
-        
-    }
+
 
     // public void userInput(){
         
@@ -67,10 +64,12 @@ public class Question{
 
         Question write_words = new Question("Type this prescicely: CaN yoU tELL Me?", "CaN yoU tELL Me?");
 
-        crabbe_goyle.printQuestion(crabbe_goyle.question, c_g_q);
+        crabbe_goyle.printQuestion();
         crabbe_goyle.isCorrect("DRAUGHT");
         crabbe_goyle.isCorrect("FIRE");
         crabbe_goyle.isCorrect("HONEY");
+
+        write_words.printQuestion();
 
         System.out.println("\n");
     }
