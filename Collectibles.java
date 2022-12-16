@@ -19,6 +19,12 @@ public class Collectibles {
     }
 
     // collectible says its catchphrase
+
+    public void addCollectible(){
+        System.out.println("You have won the collectible: " + this.name + ". It is " + this.description + ". It has the power to " + this.power + ".");
+        this.speak();
+    }
+
     public void speak(){
         System.out.println(this.catchphrase);
     }
@@ -27,11 +33,11 @@ public class Collectibles {
         System.out.print(this.description);
     }
 
-    public void sayName(){
-        System.out.print(this.name);
+    public void getName(){
+        System.out.println(this.name);
     }
 
-    public void sayPower(){
+    public void getPower(){
         System.out.print(this.power);
     }
 

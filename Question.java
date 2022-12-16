@@ -6,42 +6,71 @@ public class Question{
     
     public String question;
     public ArrayList<String> answers; 
+    public ArrayList<Collectibles> in_backpack;
     public String correct_answer; // store it as the question index
     public String partial_correct; // ^^
-    // collectible, what is given if answer is correct
+    public Collectibles collectible;
+     // what is given if answer is correct
     // make a private accessor for collectible, return collectible with isCorrect instead of an int
 
-    public Question(String question, ArrayList<String> answers, String correct_answer, String partial_correct){ 
+    public Question(String question, ArrayList<String> answers, String correct_answer, String partial_correct, Collectibles collectible){ 
         this.question = question;
         this.answers = answers; 
+        this.collectible = collectible;
         this.correct_answer = correct_answer;
         this.partial_correct = partial_correct;
        }
 
+    // overloaded constructors: 
 
-    // overloaded constructor
-    public Question(String question, String correct_answer){
+    // public Question(String question, ArrayList<String> answers, String correct_answer, String partial_correct){ 
+    //     this.question = question;
+    //     this.answers = answers; 
+    //     this.correct_answer = correct_answer;
+    //     this.partial_correct = partial_correct;
+    // }
+
+    public Question(String question, String correct_answer, Collectibles collectible){
         this.question = question;
         this.correct_answer = correct_answer;
+        this.collectible = collectible;
     }
+
+    // public Question(String question, String correct_answer){
+    //     this.question = question;
+    //     this.correct_answer = correct_answer;
+    // }
+
+    public Question(String question, ArrayList<Collectibles> in_backpack, String correct_answer, Collectibles collectible){
+        this.question = question;
+        this.in_backpack = in_backpack;
+        this.correct_answer = correct_answer;
+        this.collectible = collectible;
+    }
+
+
+    // methods:
 
     public int isCorrect(String user_ans){
         if (user_ans.equals(this.correct_answer)){
-            System.out.println(user_ans + " is right. Well done!");
+            // addBackpack(this.collectible);
             return 2;
         } if (user_ans.equals(this.partial_correct)){
-            System.out.println(user_ans + " is an okay answer.");
+            // addBackpack(this.collectible);
             return 1;
         }else{
             // loseLives();
-            System.out.println(user_ans + " was wrong. You have lost a life");
             return 0;
         }
     }
 
     public void printQuestion() {
-
         System.out.println(this.question);
+        if (this.in_backpack != null && ! this.in_backpack.isEmpty()){
+            for (int i = 0; i < in_backpack.size(); i++) {
+                in_backpack.get(i).getName();
+              }
+        }
         if (this.answers != null && ! this.answers.isEmpty()){
             System.out.println("a. " + this.answers.get(0) + "\nb. " + this.answers.get(1) + "\nc. " + this.answers.get(2));
         }
@@ -57,21 +86,21 @@ public class Question{
 
 
     public static void main(String[] args) {
-        System.out.println("\n");
+        // System.out.println("\n");
 
-        ArrayList<String> c_g_q = new ArrayList<>(Arrays.asList("DRAUGHT", "HONEY", "FIRE"));
-        Question crabbe_goyle = new Question("Which choice?", c_g_q, c_g_q.get(0), c_g_q.get(2));
+        // ArrayList<String> c_g_q = new ArrayList<>(Arrays.asList("DRAUGHT", "HONEY", "FIRE"));
+        // Question crabbe_goyle = new Question("Which choice?", c_g_q, c_g_q.get(0), c_g_q.get(2));
 
-        Question write_words = new Question("Type this prescicely: CaN yoU tELL Me?", "CaN yoU tELL Me?");
+        // Question write_words = new Question("Type this prescicely: CaN yoU tELL Me?", "CaN yoU tELL Me?");
 
-        crabbe_goyle.printQuestion();
-        crabbe_goyle.isCorrect("DRAUGHT");
-        crabbe_goyle.isCorrect("FIRE");
-        crabbe_goyle.isCorrect("HONEY");
+        // crabbe_goyle.printQuestion();
+        // crabbe_goyle.isCorrect("DRAUGHT");
+        // crabbe_goyle.isCorrect("FIRE");
+        // crabbe_goyle.isCorrect("HONEY");
 
-        write_words.printQuestion();
+        // write_words.printQuestion();
 
-        System.out.println("\n");
+        // System.out.println("\n");
     }
 }
 
