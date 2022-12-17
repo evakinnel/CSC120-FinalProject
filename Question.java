@@ -1,5 +1,13 @@
+/*
+ * The Adventures of Hogwarts
+ * CSC 120 Final Project
+ * Class - Question: houses the information and functionality pertaining to the questions and their answers
+ * Authors: Eva Kinnel, Gracia Bareti, Abby Paharsingh
+ * Date: 21 December 2022
+ */
+
 import java.util.ArrayList;
-import java.util.Arrays;
+// import java.util.Arrays;
 import java.util.Scanner;
 
 public class Question{
@@ -7,12 +15,18 @@ public class Question{
     public String question;
     public ArrayList<String> answers; 
     public ArrayList<Collectibles> in_backpack;
-    public String correct_answer; // store it as the question index
-    public String partial_correct; // ^^
+    public String correct_answer; 
+    public String partial_correct; 
     public Collectibles collectible;
-     // what is given if answer is correct
-    // make a private accessor for collectible, return collectible with isCorrect instead of an int
 
+    /**
+     * Constructor for Question class
+     * @param question stores the question and any info surrounding it
+     * @param answers stores the multiple choice answers
+     * @param correct_answer what the user must input to get full credit
+     * @param partial_correct what the user must input to get parrial credit
+     * @param collectible the reward for not getting a question wrong
+     */
     public Question(String question, ArrayList<String> answers, String correct_answer, String partial_correct, Collectibles collectible){ 
         this.question = question;
         this.answers = answers; 
@@ -21,26 +35,25 @@ public class Question{
         this.partial_correct = partial_correct;
        }
 
-    // overloaded constructors: 
-
-    // public Question(String question, ArrayList<String> answers, String correct_answer, String partial_correct){ 
-    //     this.question = question;
-    //     this.answers = answers; 
-    //     this.correct_answer = correct_answer;
-    //     this.partial_correct = partial_correct;
-    // }
-
+    /**
+     * Overloaded constructor for non-multiple choice quesitons
+     * @param question see constructor above
+     * @param correct_answer see constructor above
+     * @param collectible see constructor above
+     */
     public Question(String question, String correct_answer, Collectibles collectible){
         this.question = question;
         this.correct_answer = correct_answer;
         this.collectible = collectible;
     }
 
-    // public Question(String question, String correct_answer){
-    //     this.question = question;
-    //     this.correct_answer = correct_answer;
-    // }
-
+    /**
+     * Overloaded constructor for questions with backpack tasks
+     * @param question see constructor above
+     * @param in_backpack stores the collectibles that have been gained
+     * @param correct_answer see constructor above
+     * @param collectible see constructor above
+     */
     public Question(String question, ArrayList<Collectibles> in_backpack, String correct_answer, Collectibles collectible){
         this.question = question;
         this.in_backpack = in_backpack;
@@ -49,8 +62,11 @@ public class Question{
     }
 
 
-    // methods:
-
+    /**
+     * Reveals the correctness of an answer
+     * @param user_ans the answer that the user inputs
+     * @return the correspondance to whether a question is correct, partial correct, or incorrect
+     */
     public int isCorrect(String user_ans){
         if (user_ans.equals(this.correct_answer)){
             // addBackpack(this.collectible);
@@ -64,6 +80,9 @@ public class Question{
         }
     }
 
+    /**
+     * Prints the question with the answers if multiple choice, or prints the question with backpack items, if necessary
+     */
     public void printQuestion() {
         System.out.println(this.question);
         if (this.in_backpack != null && ! this.in_backpack.isEmpty()){
@@ -76,15 +95,10 @@ public class Question{
         }
       }
 
-
-
-    // public void userInput(){
-        
-
-    // }
-
-
-
+    /**
+     * main method for testing
+     * @param args
+     */
     public static void main(String[] args) {
         // System.out.println("\n");
 
@@ -103,71 +117,3 @@ public class Question{
         // System.out.println("\n");
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-public class Question{
-    
-    private Hashtable<String, Hashtable<String, String>> questions;
-    private Hashtable<String, String> answers;
-    // private Hashtable<String, String[]> answers; //here we are trying to nest a list into the hashtabel because we want a way to save which answers are wrong and right
-    // String[] correctArray = new String[2];
-    // private Hashtable<String, String> qaDatabase;
-
-    public Question(){
-        this.questions = new Hashtable<String, Hashtable<String, String>>();
-        this.answers = new Hashtable<String, String>();
-        // this.answers = new Hashtable<String, String[]>(); // to connect to the other declaration of Hashtable - answers
-    }
-
-
-
-    public void printQuestion() {
-
-        Set<String> set_of_keys_questions = this.questions.keySet();
-        Set<String> set_of_keys_answers = this.answers.keySet();
-        for (String key : set_of_keys_questions) {
-
-            System.out.println(key);
-
-            for (String keyA : set_of_keys_answers){
-            
-                System.out.println(keyA + ". " + this.answers.get(keyA));
-
-            }
-        }
-      }
-
-    public static void main(String[] args) {
-        Question chamber1 = new Question();
-        chamber1.questions.put("Which Option?", chamber1.answers);
-        chamber1.answers.put("a", "Honey");// results are printing out of order
-        // chamber1.answers.put("a", ["Honey","wrong"]); // what we thought would work: having an Array as the value...the wrong would not be seen but would be associated with the answer so that it would quit the game loop for being wrong
-        chamber1.answers.put("b", "Cream");
-        chamber1.answers.put("c", "Draught");
-        System.out.println("Question: ");
-        chamber1.printQuestion();
-
-        
-        //array array
-        // have an array of con
-
-
-        
-    }
-}
-
-*/

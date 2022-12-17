@@ -1,4 +1,10 @@
-import java.util.Hashtable;
+/*
+ * The Adventures of Hogwarts
+ * CSC 120 Final Project
+ * Class - Collectibles: houses the information and functionality pertaining to the collectibles
+ * Authors: Abby Paharsingh, Eva Kinnel, Gracia Bareti
+ * Date: 21 December 2022
+ */
 
 public class Collectibles {
 
@@ -9,6 +15,14 @@ public class Collectibles {
     private String catchphrase;
 
 
+    /**
+     * Constructor for collectibles
+     * @param name the name of the collectible
+     * @param description a short description of the collectible
+     * @param power why the collectible is useful
+     * @param uses the amount of times the object can be used by the user
+     * @param catchprase a phrase that goes with the collectible, fun and/or informative
+     */
     public Collectibles(String name, String description, String power, int uses, String catchprase){
         this.name = name;
         this.description = description;
@@ -17,30 +31,35 @@ public class Collectibles {
         this.catchphrase = catchprase;
         
     }
-
-    // collectible says its catchphrase
-
+    
+    /**
+     * prints information about the collectible 
+     */
     public void addCollectible(){
         System.out.println("You have won the collectible: " + this.name + ". It is " + this.description + ". It has the power to " + this.power + ".");
         this.speak();
     }
 
+    /**
+     * print collectible catchphrase
+     */
     public void speak(){
         System.out.println(this.catchphrase);
     }
 
-    public void describe(){
-        System.out.print(this.description);
-    }
-
+    /**
+     * print the name of the collectible
+     */
     public void getName(){
         System.out.println(this.name);
     }
 
-    public void getPower(){
-        System.out.print(this.power);
-    }
-
+    /**
+     * Explain what the collectible is being used for, and reduce the number of uses left
+     * (unused)
+     * @param uses how many times for the item to be used
+     * @return the number of uses left
+     */
     public int use(int uses){
         this.speak();
         this.uses -= uses;
@@ -49,6 +68,10 @@ public class Collectibles {
         return this.uses;
     }
     
+    /**
+     * main method for testing
+     * @param args
+     */
     public static void main(String[] args) {
         System.out.println("\n");
 
