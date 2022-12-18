@@ -21,9 +21,9 @@ public class Hogwarts {
         System.out.println(" / \\                     / \\                      / \\");
         System.out.println("/   \\                   /   \\                    /   \\");
         System.out.println("[][][][][][][][][][][][][][][][][][][][][][][][][][][]");
-        System.out.println("|    *           WELCOME TO HOGWARTS        *         |");
-        System.out.println("|   *         Danger and magic awaits you...       *  |");
-        System.out.println("|         *       Wand at the ready!              *   |");
+        System.out.println("|    *           WELCOME TO HOGWARTS        *        |");
+        System.out.println("|   *         Danger and magic awaits you...       * |");
+        System.out.println("|         *       Wand at the ready!              *  |");
         System.out.println("[][][][][][][][][][][][][][][][][][][][][][][][][][][]");
         System.out.println("\n");        
     }
@@ -98,7 +98,7 @@ public class Hogwarts {
             "STAB THE DIARY", fang);
         chamberQuestions.add(questionSeven);
 
-        Question questionEight = new Question("Which collectible will you use to accomplish this? Type the answer exactly.", player1.backpack, "Basilisk Fang", phrase);
+        Question questionEight = new Question("Which collectible will you use to defeat Tom Riddle? Type the answer exactly.", player1.backpack, "Basilisk Fang", phrase);
         chamberQuestions.add(questionEight);
 
         Question questionNine = new Question("Tom is vanishing. Blood begins flooding out of the diary and back into Ginny's body. You rush to her as she regains life. She wakes up and notices a wound you incurred from the basislisk.\n\nWhich collectible will you use to heal? Type the answer exactly.", player1.backpack, "Phoenix Tears",phrase);
