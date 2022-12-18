@@ -27,11 +27,3 @@ start early, pick a topic we were all familiar with like Marvel
 
 If you worked with a team: please comment on how your team dynamics influenced your experience working on this project.
 different levels of harry potter obsession, everyone has a thing they are very particular about, nice that we were comfortable with each other, and we were all at the same pace 
-
-**TO DO**
-- Introduction - Eva
-- Cheat sheet-Gracia
-- Layout description-Gracia
-- Architecture diagram (fancy with all the classes in boxes and everything)-Abby
-- JavaDoc class headers and method headers - Eva
-- Reflection - Abby
