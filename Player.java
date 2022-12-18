@@ -64,15 +64,6 @@ public class Player {
       // System.out.println("You have " + this.lives + " lives left.");
       return this.lives;
     }
-
-    /**
-     * (unused, if used should move to Hogwarts/Main class)
-     * prints the things that might help the player if they call  this function
-     */
-    public static void getHelp(){
-      System.out.println("Here are the things you can do:");
-      
-    }
     
     /**
      * main method for testing
